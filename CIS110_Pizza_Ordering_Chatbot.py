@@ -2,6 +2,8 @@ print("Hello, my name is Alex your virtual assistant. I will help you order a pi
 print("I am going to ask you a few questions. After typing an answer, press enter.")
 
 userName=input("\nEnter your name:  ")
+while len(userName)==0:
+    userName=input("Name cannot be blank! Please enter your name:  ")
 
 if userName.lower() == "raven":
     print(f"\nMy creator, {userName}. Pleasure to serve you!")
@@ -11,12 +13,27 @@ else:
 
 
 size=input("\nWhat size do you want? Enter small, medium, or large:  ")
+while size.lower() not in ["small", "medium","large" ]:
+    size=input("Invalid value! Please enter small, medium, or large:  ")
+while len(size)==0:
+    size=input("Size cannot be blank! Please enter small, medium, or large:  ")
+
 flavor=input("\nEnter the flavor of pizza:  ")
+while len(flavor)==0:
+    flavor=input("Flavor cannot be blank! Please enter a flavor:  ")
 
 crustType=input("\nWhat type of crust do you want:  ")
+while len(crustType)==0:
+    crustType= input ("Crust type cannot be blank! Please enter crust type:  ")
+
+
 quantity=input("\nHow many of these do you want to order?  ")
+while not quantity.isdigit():
+    quantity=input("\nValue not recognized. Please enter a numeric value:  ")
 quantity=int(quantity)
 method=input("\nIs this carry out or delivery:  ")
+while method not in ["carry out","delivery"]:
+    method=input("Invalid value! Please enter carry out or delivery:  ")
 
 if method.lower()=="delivery":
     deliveryFee = 5
